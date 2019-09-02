@@ -4,7 +4,7 @@
         var tecla = ( window.event ) ? e.keyCode : e.which;
         if ( tecla == 8 || tecla == 0 )
             return true;
-        if ( tecla != 44 && tecla < 48 || tecla > 57 )
+        if ( tecla != 44 && tecla != 45 && tecla < 48 || tecla > 57 )
             return false;
     }
 
@@ -15,7 +15,7 @@
         var ultimoCaracter = numeros.charAt(tamanhoNumeros - 1);
 
         if (tamanhoNumeros > 0) {
-            if (ultimoCaracter != "," &&  numeros.charAt(0) != ",") {
+            if (ultimoCaracter != "," && ultimoCaracter != "-" &&  numeros.charAt(0) != ",") {
                 $.ajax({
                     type: "POST",
                     url: '/Home/TrataLista',
