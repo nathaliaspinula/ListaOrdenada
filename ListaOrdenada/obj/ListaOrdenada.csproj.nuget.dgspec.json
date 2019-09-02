@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\natha\\Downloads\\ListaOrdenada\\ListaOrdenada\\ListaOrdenada\\ListaOrdenada.csproj": {}
+    "C:\\Users\\natha\\Downloads\\ListaOrdenada\\ListaOrdenada\\ListaOrdenada.csproj": {}
   },
   "projects": {
-    "C:\\Users\\natha\\Downloads\\ListaOrdenada\\ListaOrdenada\\ListaOrdenada\\ListaOrdenada.csproj": {
+    "C:\\Users\\natha\\Downloads\\ListaOrdenada\\ListaOrdenada\\ListaOrdenada.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\natha\\Downloads\\ListaOrdenada\\ListaOrdenada\\ListaOrdenada\\ListaOrdenada.csproj",
+        "projectUniqueName": "C:\\Users\\natha\\Downloads\\ListaOrdenada\\ListaOrdenada\\ListaOrdenada.csproj",
         "projectName": "ListaOrdenada",
-        "projectPath": "C:\\Users\\natha\\Downloads\\ListaOrdenada\\ListaOrdenada\\ListaOrdenada\\ListaOrdenada.csproj",
+        "projectPath": "C:\\Users\\natha\\Downloads\\ListaOrdenada\\ListaOrdenada\\ListaOrdenada.csproj",
         "packagesPath": "C:\\Users\\natha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\natha\\Downloads\\ListaOrdenada\\ListaOrdenada\\ListaOrdenada\\obj\\",
+        "outputPath": "C:\\Users\\natha\\Downloads\\ListaOrdenada\\ListaOrdenada\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

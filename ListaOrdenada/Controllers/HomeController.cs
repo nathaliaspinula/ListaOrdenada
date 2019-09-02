@@ -27,8 +27,19 @@ namespace ListaOrdenada.Controllers
 
         public int[] Lista(string numeros)
         {
-            int[] numerosDesordenados = numeros.Split(',').Select(n => Convert.ToInt32(n)).ToArray();
+            int[] numerosDesordenados = { };
             int[] numerosOrdenados = { };
+
+            try
+            {
+                numerosDesordenados = numeros.Split(',').Select(n => Convert.ToInt32(n)).ToArray();
+
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
 
             try
             {

@@ -9,7 +9,8 @@
     }
 
     function enviaLista() {
-        var numeros = $("#numeros").val();
+        var numeros = $.trim($("#numeros").val());
+        console.log(numeros);
         var tamanhoNumeros = numeros.length; // this will be 16
         var ultimoCaracter = numeros.charAt(tamanhoNumeros - 1);
 
@@ -26,8 +27,7 @@
                         $("#result").html("<h3>Resultado dos números ordenados:<h3>" + data);
                     },
                     error: function (error) {
-
-                        alert('Error: ' + JSON.stringify(error));
+                       $("#result").html('<h5 class="text-danger">Poxa... Ocorreu um erro. Verifique se os valores digitados estão corretos!</h5>');
                     }
                 });
             }
