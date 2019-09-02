@@ -1,0 +1,82 @@
+﻿<script>
+    function valida(obj, e )
+    {
+        var tecla = ( window.event ) ? e.keyCode : e.which;
+        if ( tecla == 8 || tecla == 0 )
+            return true;
+        if ( tecla != 44 && tecla < 48 || tecla > 57 )
+            return false;
+    }
+
+    function enviaLista() {
+        var numeros = $("#numeros").val();
+        var tamanhoNumeros = numeros.length; // this will be 16
+        var ultimoCaracter = numeros.charAt(tamanhoNumeros - 1);
+
+        if (tamanhoNumeros > 0) {
+            if (ultimoCaracter != "," &&  numeros.charAt(0) != ",") {
+                $.ajax({
+                    type: "POST",
+                    url: '/Home/TrataLista',
+                    data: {
+                        numeros: numeros
+                    },
+                    success: function (data) {
+                        data = JSON.stringify(data);
+                        $("#result").html("<h3>Resultado dos números ordenados:<h3>" + data);
+                    },
+                    error: function (error) {
+
+                        alert('Error: ' + JSON.stringify(error));
+                    }
+                });
+            }
+            else {
+                $("#result").html('<h5 class="text-danger">Poxa... Ocorreu um erro. Verifique se os valores digitados estão corretos!</h5>');
+            }
+        }
+
+        else {
+            $("#result").html('<h5 class="text-danger">Poxa... Ocorreu um erro. Verifique se todos os campos foram digitados!</h5>');
+        }
+    }
+</script>
+
+@{
+    ViewData["Title"] = "Lista";
+}
+
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h2>Olá, seja bem-vindo!</h2>
+        <div>Este projeto tem como objetivo ordenar uma lista de números.</div>
+        <div>
+            <h4>Desafio proposto:</h4>
+            <ul class="list-group">
+                <li class="list-group-item">Valendo 8 pontos: Ordene os numeros sem usar Linq ou Generics.</li>
+                <li class="list-group-item">Valendo 2 pontos: Chame o metodo comparar(int a, int b) no seu codigo.</li>
+                <li class="list-group-item">Nao use metodos como Sort(), OrderBy(), OrderByDescending(), entre outros, pois queremos analisar a sua logica para resolver o problema de ordenacao.</li>
+            </ul>
+        </div>
+        <div class="col-lg-12">
+            <div class="col-sm-6 text-center">
+                <a href="https://repl.it/repls/IdealElderlySnake" target="_blank" class="btn btn-link">Visualizar Desafio Proposto ></a>
+            </div>
+            <div class="col-sm-6 text-center    ">
+                <a href="https://github.com/nathaliaspinula/ListaOrdenada" target="_blank" class="btn btn-link">Visualizar Projeto (GitHub) > </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12 text-center">
+        <h3 style="font-weight: bold;">Digite os números desejados e separe-os por vírgulas:</h3>
+        <div class="form-group col-lg-10">
+            <input type="text" class="form-control" id="numeros" onkeypress="return valida(this, event);" required placeholder="Exemplo: 1,2,3...">
+        </div>
+        <div class="col-lg-2">
+            <button class="btn btn-primary" type="submit" value="Submit" onclick="enviaLista();">Ordenar</button>
+        </div>
+    </div>
+</div>
+<div id="result" class="text-center"></div>
